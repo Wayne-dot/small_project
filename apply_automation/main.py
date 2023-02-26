@@ -5,7 +5,7 @@ import time
 from selenium.common.exceptions import NoSuchElementException
 
 email = "wayneting.wc@gmail.com"
-word = "chung620"
+word = "PASSWORD"
 LOGIN_URL = "https://www.linkedin.com/login"
 URL = "https://www.linkedin.com/jobs/search/?currentJobId=3478179310&f_AL=true&geoId=105080838&keywords=python%20developer"
 chrome_driver_path = "C:\Development\chromedriver_win32\chromedriver.exe"
