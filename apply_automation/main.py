@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import time
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoSuchElementException, ElementClickInterceptedException
 
 email = "wayneting.wc@gmail.com"
 word = "PASSWORD"
@@ -31,15 +31,31 @@ time.sleep(5)
 list_of_job = driver.find_elements(by="css selector", value="div[class^='job-card-container relative']")
 
 for job in list_of_job:
-    link_into = job.find_element(by="css selector", value="a[class^='disabled ember-view']")
-    link_into.click()
+    try:
+        link_into = job.find_element(by="css selector", value="a[class^='disabled ember-view']")
+        link_into.click()
 
-    time.sleep(2)
-    apply_button = driver.find_element(by="css selector", value="button[class^='jobs-apply-button']")
-    print(apply_button)
-    apply_button.click()
+        time.sleep(2)
+        apply_button = driver.find_element(by="css selector", value="button[class^='jobs-apply-button']")
+        print(apply_button)
+        apply_button.click()
 
-    time.sleep(1000)
+        next_button = driver.find_element(by="css selector", value="button[aria-label^='Continue']")
+        next_button.click()
+
+        choose_resume = driver.find_element(by="css selector", value="button[aria-label^='Choose Resume']")
+        choose_resume.click()
+
+        next_button = driver.find_element(by="css selector", value="button[aria-label^='Continue']")
+        next_button.click()
+
+        time.sleep(3)
+    except NoSuchElementException:
+        print("Need additional questions")
+        continue
+    except ElementClickInterceptedException:
+        continue
+
 
     # try, if not, next one
 
