@@ -5,12 +5,3 @@
 // addEventListener()
 // array.length
 // textContent
-
-const reviews = [
-    {
-
-    },
-    {
-
-    },
-]
