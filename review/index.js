@@ -6,3 +6,11 @@
 // array.length
 // textContent
 
+const reviews = [
+    {
+
+    },
+    {
+
+    },
+]
